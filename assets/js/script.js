@@ -37,18 +37,20 @@ function runGame(gameType) {
  * Checks the answer agaisnt the first element in
  * the calcuated return
  */
-function checkAnswer() {
-    let userAnswer = parseInt(document.getElementById("answer-box").value);
-    let calculatedAnwer = calculateCorrectAnswer();
-    let isCorrect = userAnswer === calculatedAnswer[0];
 
-    if (isCorrect) {
-        alert("Hey, you got it right!");
-        else {
-            alert(`You wrong ${userAnswer}. The correct answer was ${calculatedAnswer[0]}); 
-        }
-    }
-     runGame(calculatedAnswer[1]);
+function checkAnswer (){
+
+   let userAnswer = parseInt(document.getElementById("answer-box").value);
+   let calculatedAnswer = calculateCorrectAnswer();
+   let isCorrect = userAnswer === calculatedAnswer[0];
+
+   if (isCorrect) {
+    alert("Hey, You got it right!");
+   } else {
+    alert(`You got it wrong ${userAnswer}. The correct answer was ${calculatedAnswer[0]}`);
+   }
+
+   runGame(calculatedAnswer[1]);
 }
 
 /**
@@ -61,7 +63,7 @@ function calculateCorrectAnswer() {
     let operand2 = parseInt(document.getElementById('operand').innerText);
     let operator = document.getElementById('operator').innerText;
 
-    if (operator == "+") {
+    if (operator === "+") {
         return [operand1 + operand2, "addition"];
         else {
             alert(`Unimplemented operator ${operator}`);
